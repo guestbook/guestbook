@@ -1,0 +1,14 @@
+<h1>Users</h1>
+
+<table class="table table-striped user-listing">
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td class="avatar">
+          <%= image_tag(user.github_avatar_url) %>
+        </td>
+        <td class="login"><h4><%= link_to("@#{user.github_login}", user) %></h4></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

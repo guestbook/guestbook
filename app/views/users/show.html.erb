@@ -1,0 +1,17 @@
+<div class="user-profile">
+  <div class="row">
+    <div class="col-md-2">
+      <%= image_tag(@user.github_avatar_url) %>
+    </div>
+    <div class="col-md-10">
+      <h1>
+        <%= link_to("@#{@user.github_login}", "https://github.com/#{@user.github_login}") %>
+      </h1>
+      <% if @posts.any? %>
+        <%= render 'posts/listing' %>
+      <% else %>
+        <h4>hasn't written any posts</h4>
+      <% end %>
+    </div>
+  </div>
+</div>

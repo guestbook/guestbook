@@ -1,0 +1,24 @@
+<div class="alert alert-success hidden" role="alert"></div>
+<table class="table table-striped post-listing">
+  <tbody>
+    <% @posts.each do |post| %>
+      <tr data-post-url="/posts/<%= post.id %>" class="post">
+        <% unless @no_avatars %>
+          <td class="avatar">
+            <%= link_to(image_tag(post.user.github_avatar_url), post.user) %>
+          </td>
+        <% end %>
+        <td>
+          <%= markdownify(post.message) %>
+          <%= link_to "#{time_ago_in_words(post.created_at)} ago", post, :class => "js-post-url" %>
+          <% if current_user.try(:admin?) && !post.approved %>
+            <div class="btn-group">
+              <button type="button" class="btn btn-default js-approve-button">Approve</button>
+              <button type="button" class="btn btn-default js-delete-button">Reject</button>
+            </div>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
