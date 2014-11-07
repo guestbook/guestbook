@@ -1,9 +1,9 @@
-csrfToken = function csrfToken(){
+var csrfToken = function csrfToken(){
   tag = document.querySelector("meta[name=csrf-token]")
   return tag.content
 }
 
-ajaxUpdateStatusMessage = function ajaxUpdateStatusMessage(method, url, cb) {
+var ajaxUpdateStatusMessage = function ajaxUpdateStatusMessage(method, url, cb) {
   xhr = new XMLHttpRequest()
   xhr.addEventListener("readystatechange", function(){
     if(xhr.readyState == 4) {
@@ -18,7 +18,7 @@ ajaxUpdateStatusMessage = function ajaxUpdateStatusMessage(method, url, cb) {
   xhr.send()
 }
 
-approveButtonHandler = function approveButtonHandler(event) {
+var approveButtonHandler = function approveButtonHandler(event) {
   post = this.parentElement.parentElement.parentElement
   url = post.querySelector(".js-post-url").href + "/approve"
   that = this
@@ -27,7 +27,7 @@ approveButtonHandler = function approveButtonHandler(event) {
   })
 }
 
-deleteButtonHandler = function deleteButtonHandler(event) {
+var deleteButtonHandler = function deleteButtonHandler(event) {
   post = this.parentElement.parentElement.parentElement
   url = post.querySelector(".js-post-url").href
   ajaxUpdateStatusMessage("DELETE", url, function(){
