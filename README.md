@@ -1,4 +1,4 @@
-== Guestbook App
+## Guestbook App
 
 **Version 1.1**
 

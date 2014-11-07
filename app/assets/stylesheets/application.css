@@ -36,3 +36,8 @@ img.emoji {
   height: 30px;
   width: 30px;
 }
+
+div.footer {
+  text-align: center;
+  padding-top: 30px;
+}
