@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  ensure_security_headers
   protect_from_forgery with: :exception
   before_filter :login_required
 
