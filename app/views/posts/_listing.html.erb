@@ -11,11 +11,15 @@
         <td>
           <%= markdownify(post.message) %>
           <%= link_to "#{time_ago_in_words(post.created_at)} ago", post, :class => "js-post-url" %>
-          <% if current_user.try(:admin?) && !post.approved %>
-            <div class="btn-group">
-              <button type="button" class="btn btn-default js-approve-button">Approve</button>
-              <button type="button" class="btn btn-default js-delete-button">Reject</button>
-            </div>
+          <% if !post.approved %>
+            <% if current_user.try(:admin?) %>
+              <div class="btn-group">
+                <button type="button" class="btn btn-default js-approve-button">Approve</button>
+                <button type="button" class="btn btn-default js-delete-button">Reject</button>
+              </div>
+            <% else %>
+              <span class="label label-default">Pending approval</span>
+            <% end %>
           <% end %>
         </td>
       </tr>
