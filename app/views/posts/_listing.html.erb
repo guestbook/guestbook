@@ -9,7 +9,9 @@
           </td>
         <% end %>
         <td>
-          <%= markdownify(post.message) %>
+          <div class="content">
+            <%= markdownify(post.message) %>
+          </div>
           <%= link_to "#{time_ago_in_words(post.created_at)} ago", post, :class => "js-post-url" %>
           <% if !post.approved %>
             <% if current_user.try(:admin?) %>
