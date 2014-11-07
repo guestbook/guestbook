@@ -2,7 +2,7 @@ require_relative "guestbook/html"
 
 module Guestbook
   def version
-    "v1.1"
+    "v1.2"
   end
 
   extend self
