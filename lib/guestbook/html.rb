@@ -24,6 +24,11 @@ module Guestbook
 
     PIPELINE = ::HTML::Pipeline.new(FILTERS, :whitelist => WHITELIST)
 
+    # Convert raw text containing markdown syntax into HTML.
+    #
+    # raw - A String containing markdown syntax.
+    #
+    # Returns a String.
     def process(raw)
       PIPELINE.call(raw)[:output].to_s.html_safe
     end

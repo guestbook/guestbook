@@ -1,6 +1,11 @@
 class Post < ActiveRecord::Base
   belongs_to :user
 
+  # Get posts that should be visible to a given user.
+  #
+  # user - The User to check permissions for.
+  #
+  # Returns an Array of Posts.
   def self.visible_to(user)
     if user.try(:admin?)
       all
@@ -9,6 +14,11 @@ class Post < ActiveRecord::Base
     end
   end
 
+  # Check if this post is visible to a given user.
+  #
+  # user - The User to check permissions for.
+  #
+  # Returns a boolean.
   def visible_to?(user)
     approved? || user.try(:admin?) || user == self.user
   end

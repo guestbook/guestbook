@@ -36,10 +36,16 @@ class ApplicationController < ActionController::Base
     redirect_to("/auth/github") unless logged_in?
   end
 
+  # Redirect to root path unless a user is admin.
+  #
+  # Returns nothing.
   def admin_required
     redirect_to("/") unless logged_in? && current_user.admin?
   end
 
+  # Serve a 401 message.
+  #
+  # Returns nothing.
   def access_denied
     render status: 401, text: "nice try"
   end

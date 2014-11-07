@@ -8,6 +8,7 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
+  # GET /posts/:id
   def show
     @post  = Post.find_by_id!(params[:id])
     return access_denied unless @post.visible_to?(current_user)
@@ -16,6 +17,7 @@ class PostsController < ApplicationController
     @no_avatars = true
   end
 
+  # PUT /posts/:id/approve
   def approve
     post = Post.find_by_id!(params[:id])
     post.approved = true
@@ -26,6 +28,7 @@ class PostsController < ApplicationController
     end
   end
 
+  # DELETE /posts/:id
   def destroy
     post = Post.find_by_id!(params[:id])
     post.delete
