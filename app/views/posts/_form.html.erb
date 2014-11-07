@@ -5,8 +5,14 @@
       <%= f.text_area :message, class: "form-control", rows: "5" %>
     </div>
 
-    <div class="actions">
-      <%= f.submit("Post", class: "btn btn-default") %>
+    <div class="row">
+      <div class="col-md-8">
+        <span class="octicon octicon-markdown"></span>
+        Markdown supported
+      </div>
+      <div class="col-md-4 text-right">
+        <%= f.submit("Post message", class: "btn btn-primary") %>
+      </div>
     </div>
   <% end %>
 </div>
