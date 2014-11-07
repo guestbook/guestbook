@@ -4,8 +4,9 @@ gem "omniauth-github"
 gem "html-pipeline"
 gem "github-markdown"
 gem "sanitize"
-gem 'rails_12factor', group: :production
-gem 'octicons-rails'
+gem "octicons-rails"
+gem "secure_headers"
+gem "rails_12factor", group: :production
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
