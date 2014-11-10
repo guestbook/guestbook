@@ -30,6 +30,14 @@ class ApplicationController < ActionController::Base
   end
   helper_method :logged_in?
 
+  # Is the current user an admin?
+  #
+  # Returns boolean.
+  def admin?
+    logged_in? && current_user.admin?
+  end
+  helper_method :admin?
+
   # Redirect into OAuth flow unless a user is logged in.
   #
   # Returns nothing.
@@ -41,7 +49,7 @@ class ApplicationController < ActionController::Base
   #
   # Returns nothing.
   def admin_required
-    redirect_to("/") unless logged_in? && current_user.admin?
+    redirect_to("/") unless admin?
   end
 
   # Serve a 401 message.

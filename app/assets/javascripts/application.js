@@ -7,7 +7,7 @@ var ajaxUpdateStatusMessage = function ajaxUpdateStatusMessage(method, url, cb) 
   var xhr = new XMLHttpRequest()
   xhr.addEventListener("readystatechange", function(){
     if(xhr.readyState == 4) {
-      var alert = document.querySelector(".alert-success")
+      var alert = document.querySelector("div.alert-success")
       alert.innerHTML = xhr.responseText
       alert.classList.remove('hidden')
       cb()
@@ -22,7 +22,7 @@ var approveButtonHandler = function approveButtonHandler(event) {
   var post = this.parentElement.parentElement.parentElement
   var url = post.querySelector(".js-post-url").href + "/approve"
   ajaxUpdateStatusMessage("PUT", url, function(){
-    post.querySelector(".btn-group").remove()
+    post.querySelector("div.btn-group").remove()
   })
 }
 
