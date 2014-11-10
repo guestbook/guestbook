@@ -4,7 +4,7 @@ class PostsController < ApplicationController
 
   # GET /posts
   def index
-    @posts = Post.visible_to(current_user)
+    @posts = Post.visible_to(current_user).preload(:user)
     @post = Post.new
   end
 

@@ -14,7 +14,7 @@
           </div>
           <%= link_to "#{time_ago_in_words(post.created_at)} ago", post, :class => "js-post-url" %>
           <% if !post.approved %>
-            <% if current_user.try(:admin?) %>
+            <% if admin? %>
               <div class="btn-group">
                 <button type="button" class="btn btn-default js-approve-button">Approve</button>
                 <button type="button" class="btn btn-default js-delete-button">Reject</button>
